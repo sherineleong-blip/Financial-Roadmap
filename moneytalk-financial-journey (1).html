@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Money Talk Financial Journey | Sherine Leong</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:    #1A4731;
+    --emerald:   #2D7A50;
+    --sage:      #4FAD74;
+    --mint:      #A8D5B5;
+    --pale:      #E8F5ED;
+    --white:     #FAFFFE;
+    --gold:      #C8A84B;
+    --text-dark: #142B1E;
+    --text-mid:  #3A5C48;
+    --text-light:#6B8F7A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    line-height: 1.7;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(145deg, var(--forest) 0%, var(--emerald) 60%, var(--sage) 100%);
+    color: #fff;
+    padding: 64px 32px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mint);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.85);
+    max-width: 580px;
+    margin: 0 auto 36px;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    padding: 8px 24px;
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  /* ── INTRO BAND ── */
+  .intro {
+    background: var(--pale);
+    border-bottom: 2px solid var(--mint);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .intro p {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: var(--text-mid);
+  }
+  .intro strong { color: var(--forest); }
+
+  /* ── MAIN LAYOUT ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--forest);
+    text-align: center;
+    padding: 56px 24px 8px;
+  }
+  .section-title + .section-desc {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.92rem;
+    padding: 0 24px 40px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* ── JOURNEY STEPS ── */
+  .journey {
+    padding: 16px 24px 64px;
+  }
+
+  .step-row {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 48px;
+    align-items: flex-start;
+  }
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .step-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(26,71,49,0.3);
+    position: relative;
+    z-index: 1;
+  }
+  .step-badge.alt { background: var(--emerald); }
+  .step-connector {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--sage), var(--mint));
+    min-height: 60px;
+    margin-top: 4px;
+  }
+  .step-card {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--mint);
+    border-left: 4px solid var(--emerald);
+    border-radius: 12px;
+    padding: 28px 32px;
+    box-shadow: 0 2px 12px rgba(45,122,80,0.07);
+  }
+  .step-card:hover {
+    box-shadow: 0 6px 24px rgba(45,122,80,0.13);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+  }
+  .step-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 6px;
+  }
+  .step-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+  .step-card .step-tagline {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .step-card p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    margin-bottom: 14px;
+  }
+  .step-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--pale);
+    border: 1px solid var(--mint);
+    color: var(--forest);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 100px;
+    transition: background 0.2s;
+    margin-top: 4px;
+  }
+  .step-link:hover { background: var(--mint); }
+  .step-link svg { width: 13px; height: 13px; }
+
+  /* last step has no connector */
+  .step-row:last-child .step-connector { display: none; }
+
+  /* ── DELIVERABLES SECTION ── */
+  .deliverables {
+    background: linear-gradient(135deg, var(--forest) 0%, var(--emerald) 100%);
+    color: #fff;
+    padding: 64px 32px;
+  }
+  .deliverables h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .deliverables .del-sub {
+    text-align: center;
+    color: var(--mint);
+    font-size: 0.9rem;
+    margin-bottom: 48px;
+  }
+  .del-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .del-category {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .del-category h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .del-category h4 .icon {
+    width: 28px; height: 28px;
+    background: rgba(200,168,75,0.2);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .del-list {
+    list-style: none;
+  }
+  .del-list li {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.85);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .del-list li:last-child { border-bottom: none; }
+  .del-list li::before {
+    content: '✓';
+    color: var(--sage);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── PROGRAM CTA ── */
+  .program-cta {
+    background: var(--pale);
+    padding: 64px 32px;
+    text-align: center;
+    border-top: 2px solid var(--mint);
+  }
+  .program-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--forest);
+    margin-bottom: 12px;
+  }
+  .program-cta p {
+    color: var(--text-mid);
+    max-width: 560px;
+    margin: 0 auto 32px;
+    font-size: 0.97rem;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--forest), var(--emerald));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 16px 36px;
+    border-radius: 100px;
+    box-shadow: 0 6px 24px rgba(26,71,49,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(26,71,49,0.4);
+  }
+  .cta-course-name {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--mint);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--forest);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 0.82rem;
+  }
+  footer strong { color: #fff; }
+  footer a { color: var(--mint); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .step-row { flex-direction: column; gap: 12px; }
+    .step-left { flex-direction: row; gap: 12px; align-items: center; }
+    .step-connector { display: none; }
+    .step-card { border-left-width: 4px; }
+    .hero { padding: 48px 20px 60px; }
+    .del-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    .cta-btn, .step-link { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Money Talk by Sherine Leong</p>
+  <h1>Your <span>Financial Clarity</span> Journey Starts Here</h1>
+  <p class="hero-sub">A structured, step-by-step programme that takes you from financial fog to confident clarity — with tools and coaching built around your real numbers.</p>
+  <span class="hero-tag">For Anyone Who Wants to Take Control of Their Financial Future</span>
+</section>
+
+<!-- INTRO -->
+<div class="intro">
+  <p>This roadmap outlines <strong>exactly what happens</strong> when you work with me. Every step has a purpose — from a simple quiz that reveals your financial health score, to a full annual income tracker that keeps you accountable for 12 months. You don't need to figure it all out alone.</p>
+</div>
+
+<!-- JOURNEY -->
+<div class="container">
+  <h2 class="section-title">Your 4-Step Money Journey</h2>
+  <p class="section-desc">Each step builds on the last. We start with clarity, move into action, and end with a system that works for you year-round.</p>
+</div>
+
+<div class="container journey">
+
+  <!-- STEP 1 -->
+  <div class="step-row">
+    <div class="step-left">
+      <div class="step-badge">1</div>
+      <div class="step-connector"></div>
+    </div>
+    <div class="step-card">
+      <p class="step-eyebrow">Lead Magnet · Free</p>
+      <h3>Financial Fitness Quiz</h3>
+      <p class="step-tagline">Know where you stand in under 5 minutes</p>
+      <p>Before we do anything else, you need an honest read on where your finances stand today. This interactive quiz assesses key areas of your financial health and gives you a personalised score — no fluff, no jargon. It's the starting line.</p>
+      <p>You'll walk away knowing which money areas need the most attention and what your next move should be.</p>
+      <a class="step-link" href="https://animated-tartufo-b6ca4d.netlify.app/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Take the Quiz
+      </a>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-row">
+    <div class="step-left">
+      <div class="step-badge alt">2</div>
+      <div class="step-connector"></div>
+    </div>
+    <div class="step-card">
+      <p class="step-eyebrow">Assessment · Guided</p>
+      <h3>Personal Financial Statement</h3>
+      <p class="step-tagline">Your complete financial picture in one place</p>
+      <p>This is where we get real. You'll fill in a structured financial statement covering your income, expenses, assets, and liabilities. I review and verify every figure with you so nothing is missed or misclassified.</p>
+      <p>The outcome: a crystal-clear view of your net worth, cash flow position, and where your money is actually going. Available for individuals and couples.</p>
+      <a class="step-link" href="https://docs.google.com/spreadsheets/d/1llj-rw9LmsNo59y5I7KLHEVA9REr0VHqiHYBudL6jrY/edit?usp=sharing" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Individual Statement
+      </a>
+      &nbsp;
+      <a class="step-link" href="https://docs.google.com/spreadsheets/d/1LJny3c3GxmViHlrWnGGGj2yFOKoi3rdLUEToBmP4duY/edit?usp=sharing" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Couples Statement
+      </a>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-row">
+    <div class="step-left">
+      <div class="step-badge">3</div>
+      <div class="step-connector"></div>
+    </div>
+    <div class="step-card">
+      <p class="step-eyebrow">Report · Personalised</p>
+      <h3>Financial Wellbeing Report</h3>
+      <p class="step-tagline">Your financial health, visualised and scored</p>
+      <p>Based on your completed financial statement, I generate a beautifully formatted Financial Wellbeing Report that scores your health across key areas: savings rate, debt position, emergency fund, investment readiness, and more.</p>
+      <p>This is your personal financial health dashboard — a document you can revisit, share with your partner, or use as a baseline to measure progress over time.</p>
+      <a class="step-link" href="https://sherineleong-blip.github.io/Fam-Financial-wellbeing/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Sample Report
+      </a>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-row">
+    <div class="step-left">
+      <div class="step-badge alt">4</div>
+      <div class="step-connector"></div>
+    </div>
+    <div class="step-card">
+      <p class="step-eyebrow">Ongoing · 12 Months</p>
+      <h3>Income & Expenditure Tracker</h3>
+      <p class="step-tagline">Stay on track for the full year</p>
+      <p>Knowing your numbers once isn't enough — wealth is built through consistent habits. You'll receive a 12-month Income & Expenditure Tracker tailored to your financial profile. Track every ringgit as it flows in and out, categorised clearly so patterns emerge.</p>
+      <p>At key intervals, we review together. This is where the coaching becomes transformative: not just recording what happened, but deciding what you'll do differently next month.</p>
+      <a class="step-link" href="https://docs.google.com/spreadsheets/d/1nsx5oEMcz_XDRxtLSisNQolr71hA-A30HVGPzUMZ7VA/edit?usp=sharing" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Open Tracker
+      </a>
+    </div>
+  </div>
+
+</div><!-- /container journey -->
+
+<!-- DELIVERABLES -->
+<section class="deliverables">
+  <h2>What You'll Gain</h2>
+  <p class="del-sub">Across this programme, here is what we will work through together</p>
+  <div class="del-grid">
+
+    <div class="del-category">
+      <h4><span class="icon">💡</span> Financial Clarity</h4>
+      <ul class="del-list">
+        <li>Full assessment of income, expenses, assets and liabilities</li>
+        <li>Clear picture of whether you are financially healthy</li>
+        <li>Defined short-term and long-term financial goals aligned to your lifestyle</li>
+      </ul>
+    </div>
+
+    <div class="del-category">
+      <h4><span class="icon">📊</span> Budgeting & Cash Flow</h4>
+      <ul class="del-list">
+        <li>A personalised monthly budget that includes the things you enjoy</li>
+        <li>Strategies to optimise income and manage expenses</li>
+        <li>Consistent positive cash flow, even if there are shortfalls today</li>
+      </ul>
+    </div>
+
+    <div class="del-category">
+      <h4><span class="icon">🏦</span> Debt & Emergency Fund</h4>
+      <ul class="del-list">
+        <li>Full review of all debts, interest rates and balances</li>
+        <li>Strategic repayment plan to reduce and eliminate debt efficiently</li>
+        <li>Emergency fund of 3–6 months' expenses, with a savings plan to build it</li>
+      </ul>
+    </div>
+
+    <div class="del-category">
+      <h4><span class="icon">🌱</span> Future Planning</h4>
+      <ul class="del-list">
+        <li>Children's education cost projections and savings strategy</li>
+        <li>Defined retirement vision with savings and investment direction</li>
+        <li>A diversified approach to growing wealth over time</li>
+      </ul>
+    </div>
+
+    <div class="del-category">
+      <h4><span class="icon">🔄</span> Ongoing Reviews</h4>
+      <ul class="del-list">
+        <li>Regular check-ins to track progress and adjust as life changes</li>
+        <li>Accountability partner for financial decisions big and small</li>
+        <li>Continuous access to guidance and support throughout the programme</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROGRAM CTA -->
+<section class="program-cta">
+  <h2>Ready to Go Deeper?</h2>
+  <p>The coaching programme walks you through all of this step by step. If you prefer a self-paced path, the full online course covers all 6 steps to transform your finances and start building real wealth — at your own pace, on your own schedule.</p>
+  <a class="cta-btn" href="https://thenextlvl.teachable.com/p/master-your-money-6-steps-to-transform-your-finances-and-build-wealth" target="_blank">
+    Enrol in the Course
+    <span class="cta-course-name">Master Your Money: 6 Steps to Transform Your Finances and Build Wealth</span>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-brand">Money Talk by Sherine Leong</p>
+  <p>Licensed Registered Financial Planner (RFP) · Certified Financial Coach (CFC) · HRDC Accredited Trainer</p>
+  <p style="margin-top:10px;">
+    <a href="https://moneytalk38.wordpress.com/?fbclid=IwY2xjawSd-upleHRuA2FlbQIxMABicmlkETFVbHo0NnVOWWQyOTB6Snk5c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnTJZMQ0v5XD4QdvGFJRqOZnmQTxz_wwrsSNuMdsoxjhmZsPIpfa1DLEq0B__aem_t_3fqCSQ9u4IR4FMBY4atQ" target="_blank">my-money-talk.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://thenextlvl.teachable.com/p/master-your-money-6-steps-to-transform-your-finances-and-build-wealth" target="_blank">Online Course</a>
+  </p>
+  <p style="margin-top:16px; font-size:0.75rem; color: rgba(255,255,255,0.4);">This document is for informational purposes only and does not constitute financial advice. Results are dependent on individual circumstances and commitment.</p>
+</footer>
+
+</body>
+</html>
